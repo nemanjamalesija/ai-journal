@@ -1,7 +1,34 @@
-import React from 'react';
+import { currentUser } from '@clerk/nextjs';
+import { prisma } from '../utils/db';
+import { redirect } from 'next/navigation';
+import Loading from './loading';
 
-const NewUser = () => {
-  return <div>Page</div>;
+async function createNewUser() {
+  const currUser = await currentUser();
+  console.log(currUser);
+
+  const match = await prisma.user.findUnique({
+    where: {
+      clerkId: currUser!.id as string,
+    },
+  });
+
+  if (!match) {
+    await prisma.user.create({
+      data: {
+        clerkId: currUser!.id,
+        email: currUser!.emailAddresses[0].emailAddress,
+      },
+    });
+  }
+
+  redirect('/journal');
+}
+
+const NewUser = async () => {
+  await createNewUser();
+
+  return <Loading />;
 };
 
 export default NewUser;
