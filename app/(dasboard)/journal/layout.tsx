@@ -1,3 +1,5 @@
+import { UserButton } from '@clerk/nextjs';
+
 interface DashLayoutProps {
   children: React.ReactNode;
 }
@@ -9,7 +11,11 @@ const DashboardLayout = ({ children }: DashLayoutProps) => {
         Your ai journal
       </aside>
       <div className="ml-[200px]">
-        <header className="h-[60px] border-b border-black/10">Hello</header>
+        <header className="h-[60px] border-b border-black/10">
+          <div className="h-full w-full px-6 flex items-center justify-end">
+            <UserButton />
+          </div>
+        </header>
         <div>{children}</div>
       </div>
     </div>

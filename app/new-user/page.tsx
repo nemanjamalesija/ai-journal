@@ -5,7 +5,6 @@ import Loading from './loading';
 
 async function createNewUser() {
   const currUser = await currentUser();
-  console.log(currUser);
 
   const match = await prisma.user.findUnique({
     where: {
