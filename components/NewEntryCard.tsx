@@ -1,7 +1,15 @@
 'use client';
 
+import { createNewEntry } from '@/app/utils/api';
+import { useRouter } from 'next/navigation';
+
 const NewEntryCard = () => {
-  function clickHandler() {}
+  const router = useRouter();
+
+  async function clickHandler() {
+    const data = await createNewEntry();
+    router.push(`/journal/${data.id}`);
+  }
 
   return (
     <div className="cursor-pointer overflow-hidden rounded-lg bg-white shadow">
