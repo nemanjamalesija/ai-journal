@@ -17,10 +17,6 @@ async function getEntries() {
     },
   });
 
-  analyze(
-    'Today I am not feeling at my best. I am trying to push through the day but I ended up procrastinating quite a bit. I started studying in the end so I guess it will be fine. But I need to get back to working out, eating healthy and studying harder.'
-  );
-
   // if no entries, returns empty array
   return entries;
 }

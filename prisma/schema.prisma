@@ -39,6 +39,8 @@ model Analysis {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  subject     String
   mood      String
   summary   String
   color     String
