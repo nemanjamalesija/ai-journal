@@ -1,12 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import { useAutosave } from 'react-autosave';
 
 import { updateEntry } from '@/app/utils/api';
 
 const Editor = ({ entry }) => {
-  const [value, setValue] = useState(entry.content);
-  const [isLoading, setIsLoading] = useState(false);
+  const [value, setValue] = React.useState(entry.content);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   useAutosave({
     data: value,
