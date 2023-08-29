@@ -3,6 +3,7 @@ import { prisma } from '../../utils/db';
 import NewEntryCard from '@/components/NewEntryCard';
 import EntryCard from '@/components/EntryCard';
 import Link from 'next/link';
+import { analyze } from '@/app/utils/ai';
 
 async function getEntries() {
   const user = await getUserFromClerkID();
