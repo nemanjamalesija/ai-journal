@@ -47,7 +47,7 @@ model Analysis {
   negative  Boolean
 
   entryId String
-  entry   JournalEntry @relation(fields: [entryId], references: [id])
+  entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete:  Cascade)
 
   @@unique([entryId])
 }
