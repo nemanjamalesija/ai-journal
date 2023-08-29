@@ -3,6 +3,7 @@ import React from 'react';
 import { useAutosave } from 'react-autosave';
 
 import { updateEntry } from '@/app/utils/api';
+import Spinner from './Spinner';
 
 const Editor = ({ entry }) => {
   const [value, setValue] = React.useState(entry.content);
@@ -46,7 +47,7 @@ const Editor = ({ entry }) => {
   return (
     <div className="w-full h-full grid grid-cols-3">
       <div className="col-span-2">
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <Spinner />}
         <textarea
           className="w-full h-full p-8 text-xl outline-none"
           value={value}
