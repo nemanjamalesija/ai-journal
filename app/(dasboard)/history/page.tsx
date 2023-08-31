@@ -1,5 +1,6 @@
 import { getUserFromClerkID } from '@/app/utils/auth';
 import { prisma } from '@/app/utils/db';
+import HistoryChart from '@/components/HistoryChart';
 
 const getData = async () => {
   const user = await getUserFromClerkID();
@@ -7,8 +8,8 @@ const getData = async () => {
     where: {
       userId: user.id,
     },
-    select: {
-      sentimentScore: true,
+    orderBy: {
+      createdAt: 'asc',
     },
   });
 
@@ -22,7 +23,14 @@ const History = async () => {
   const { avg, analyses } = await getData();
 
   console.log(analyses, avg);
-  return <div>History: {avg}</div>;
+  return (
+    <div className="w-full h-full">
+      {`Avg. Sentiment: ${avg}`}
+      <div className="h-full w-full">
+        <HistoryChart data={analyses} />
+      </div>
+    </div>
+  );
 };
 
 export default History;
