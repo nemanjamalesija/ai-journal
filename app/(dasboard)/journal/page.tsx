@@ -38,7 +38,6 @@ const JournalPage = async () => {
             <EntryCard entry={entry} />
           </Link>
         ))}
-        Q
       </div>
     </div>
   );

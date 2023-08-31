@@ -25,6 +25,7 @@ export async function PATCH(request, { params }) {
     },
     update: { ...analysis },
     create: {
+      userId: user.id,
       entryId: updatedEntry.id,
       ...analysis,
     },
