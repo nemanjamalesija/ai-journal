@@ -3,8 +3,8 @@ import { prisma } from '../../utils/db';
 import NewEntryCard from '@/components/NewEntryCard';
 import EntryCard from '@/components/EntryCard';
 import Link from 'next/link';
-import { analyze } from '@/app/utils/ai';
 import Question from '@/components/Question';
+import { pDisplay } from '@/app/layout';
 
 async function getEntries() {
   const user = await getUserFromClerkID();
@@ -16,6 +16,7 @@ async function getEntries() {
     orderBy: {
       createdAt: 'desc',
     },
+    include: { analysis: true },
   });
 
   // if no entries, returns empty array
@@ -26,12 +27,14 @@ const JournalPage = async () => {
   const entries = await getEntries();
 
   return (
-    <div className="p-10 bg-zinc-400/10 h-full">
-      <h2 className="text-3xl mb-8">Journal</h2>
+    <div className="py-5 px-10 bg-zinc-400/10 min-h-full max-h-min">
+      <h2 className="text-3xl mb-8" style={{ fontFamily: pDisplay.className }}>
+        Journal
+      </h2>
       <div className="my-8">
         <Question />
       </div>
-      <div className="grid grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-3 gap-4">
         <NewEntryCard />
         {entries.map((entry) => (
           <Link key={entry.id} href={`journal/${entry.id}`}>

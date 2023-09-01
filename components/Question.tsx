@@ -2,6 +2,7 @@
 import { askQuestion } from '@/app/utils/api';
 import React from 'react';
 import Spinner from './Spinner';
+import { lato } from '@/app/utils/lato';
 
 const Question = () => {
   const [value, setValue] = React.useState('');
@@ -25,26 +26,36 @@ const Question = () => {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className="w-full flex items-center">
         <input
           disabled={loading}
           type="text"
           value={value}
           onChange={onChangeHandler}
-          placeholder="Ask a question"
-          className="border border-black/20 px-4 py-2 text-lg rounded-lg mr-3"
+          placeholder="Ask a question about your journal entries"
+          className="border border-black/20 px-4 py-2 text-lg rounded-lg mr-3 outline-none w-full"
         />
         <button
           disabled={loading}
           type="submit"
-          className="bg-yellow-400 px-4 py-2 rounded-lg text-lg text-black font-semibold"
+          className="bg-yellow-400 hover:bg-yellow-700 hover:text-white transition-all duration-200  px-4 py-2 rounded-lg text-lg text-black font-semibold capitalize"
         >
           Ask
         </button>
       </form>
       {loading && <Spinner />}
 
-      {response && <div className="">{response}</div>}
+      {!response && (
+        <div className="mt-3">
+          <p className="">Ex: How was I feeling on August 31 2023?</p>
+        </div>
+      )}
+
+      {response && (
+        <div className="mt-3">
+          <p className="">{response}</p>
+        </div>
+      )}
     </div>
   );
 };

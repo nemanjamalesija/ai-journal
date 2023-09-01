@@ -4,6 +4,7 @@ import { useAutosave } from 'react-autosave';
 
 import { updateEntry } from '@/app/utils/api';
 import Spinner from './Spinner';
+import { pDisplay } from '@/app/layout';
 
 const Editor = ({ entry }) => {
   const [value, setValue] = React.useState(entry.content);
@@ -14,8 +15,8 @@ const Editor = ({ entry }) => {
 
   const analysisData = [
     {
-      name: summary,
-      value: mood,
+      name: 'Summary',
+      value: summary,
     },
 
     {
@@ -57,7 +58,12 @@ const Editor = ({ entry }) => {
 
       <div className="border-l border-black/10 ">
         <div style={{ backgroundColor: color }} className="px-6 py-10">
-          <h2 className="text-2xl">Analysis</h2>
+          <h2
+            className="text-2xl font-semibold"
+            style={{ fontFamily: pDisplay.className }}
+          >
+            Analysis
+          </h2>
         </div>
         <div>
           <ul>
@@ -66,8 +72,13 @@ const Editor = ({ entry }) => {
                 key={el.name}
                 className="flex items-center justify-between px-2 py-4 border-b border-t border-black/10"
               >
-                <span className="text-lg  font-semibold">{el.name}</span>
-                <span>{el.value}</span>
+                <span
+                  className="text-lg font-semibold min-w-[30%]"
+                  style={{ fontFamily: pDisplay.className }}
+                >
+                  {el.name}
+                </span>
+                <span className="text-lg text-right">{el.value}</span>
               </li>
             ))}
           </ul>

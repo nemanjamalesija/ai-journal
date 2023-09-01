@@ -1,8 +1,8 @@
 import { getUserFromClerkID } from '@/app/utils/auth';
 import { prisma } from '@/app/utils/db';
 import { NextResponse } from 'next/server';
-import { revalidatePath } from 'next/cache';
 import { analyze } from '@/app/utils/ai';
+import { update } from '@/app/utils/update';
 
 export async function POST() {
   const user = await getUserFromClerkID();
@@ -22,7 +22,7 @@ export async function POST() {
     },
   });
 
-  revalidatePath('/journal');
+  update(['/journal']);
 
   return NextResponse.json({ data: entry });
 }

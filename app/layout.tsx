@@ -1,9 +1,20 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
+import { Lato } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+export const pDisplay = Playfair_Display({
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+});
+
+export const lato = Lato({
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Ai journal',
@@ -18,7 +29,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={lato.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
