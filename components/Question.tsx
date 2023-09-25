@@ -2,7 +2,6 @@
 import { askQuestion } from '@/app/utils/api';
 import React from 'react';
 import Spinner from './Spinner';
-import { lato } from '@/app/utils/lato';
 
 const Question = () => {
   const [value, setValue] = React.useState('');

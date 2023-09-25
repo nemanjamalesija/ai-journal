@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs';
 import Link from 'next/link';
-import { pDisplay } from './layout';
+import { pDisplay } from './utils/fonts';
+
 
 export default async function Home() {
   const { userId } = await auth();

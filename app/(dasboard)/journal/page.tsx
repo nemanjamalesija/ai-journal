@@ -4,7 +4,7 @@ import NewEntryCard from '@/components/NewEntryCard';
 import EntryCard from '@/components/EntryCard';
 import Link from 'next/link';
 import Question from '@/components/Question';
-import { pDisplay } from '@/app/layout';
+import { pDisplay } from '@/app/utils/fonts';
 
 async function getEntries() {
   const user = await getUserFromClerkID();

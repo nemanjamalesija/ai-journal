@@ -1,7 +1,7 @@
 'use client';
 
-import { pDisplay } from '@/app/layout';
 import { createNewEntry } from '@/app/utils/api';
+import { pDisplay } from '@/app/utils/fonts';
 import { useRouter } from 'next/navigation';
 
 const NewEntryCard = () => {

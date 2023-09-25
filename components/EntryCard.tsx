@@ -1,5 +1,3 @@
-import { lato } from '@/app/utils/lato';
-
 const EntryCard = ({ entry }) => {
   const date = new Date(entry.createdAt).toDateString();
   return (

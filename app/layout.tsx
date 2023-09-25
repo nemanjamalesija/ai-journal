@@ -1,21 +1,8 @@
 import './globals.css';
-import { Playfair_Display } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
-import { Lato } from 'next/font/google';
+import { lato } from './utils/fonts';
 
-export const pDisplay = Playfair_Display({
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-});
-
-export const lato = Lato({
-  weight: ['400'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-});
-
-export const metadata = {
+const metadata = {
   title: 'Ai journal',
   description: 'Ai powered journal application',
 };

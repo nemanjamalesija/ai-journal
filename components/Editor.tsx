@@ -4,7 +4,8 @@ import { useAutosave } from 'react-autosave';
 
 import { updateEntry } from '@/app/utils/api';
 import Spinner from './Spinner';
-import { pDisplay } from '@/app/layout';
+import { pDisplay } from '@/app/utils/fonts';
+
 
 const Editor = ({ entry }) => {
   const [value, setValue] = React.useState(entry.content);
