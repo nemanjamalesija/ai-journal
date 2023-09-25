@@ -1,5 +1,4 @@
 import './globals.css';
-import type { Metadata } from 'next';
 import { Playfair_Display } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 import { Lato } from 'next/font/google';
@@ -16,7 +15,7 @@ export const lato = Lato({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Ai journal',
   description: 'Ai powered journal application',
 };
