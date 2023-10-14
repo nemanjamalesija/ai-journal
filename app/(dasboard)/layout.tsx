@@ -1,6 +1,6 @@
 import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
-import { pDisplay } from '../layout';
+import { pDisplay } from '../utils/fonts';
 
 interface DashLayoutProps {
   children: React.ReactNode;
