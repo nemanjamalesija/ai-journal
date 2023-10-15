@@ -9,6 +9,8 @@ import { pDisplay } from '@/app/utils/fonts';
 async function getEntries() {
   const user = await getUserFromClerkID();
 
+  console.log(user);
+
   const entries = await prisma.journalEntry.findMany({
     where: {
       userId: user.id,

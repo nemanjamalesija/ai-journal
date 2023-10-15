@@ -2,10 +2,10 @@ import { auth } from '@clerk/nextjs';
 import Link from 'next/link';
 import { pDisplay } from './utils/fonts';
 
-
 export default async function Home() {
   const { userId } = await auth();
-  let href = userId ? '/journal' : '/new-user';
+
+  let href = userId ? '/journal' : '/sign-up';
 
   return (
     <div className="w-screen h-screen bg-black flex justify-center items-center text-white">
