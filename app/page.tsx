@@ -4,7 +4,6 @@ import { pDisplay } from './utils/fonts';
 
 export default async function Home() {
   const { userId } = await auth();
-
   let href = userId ? '/journal' : '/sign-up';
 
   return (
